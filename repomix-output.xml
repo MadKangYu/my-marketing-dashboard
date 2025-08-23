@@ -1,0 +1,4332 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.claude/
+  settings.local.json
+.cursor/
+  rules/
+    global.mdc
+~/
+  .claude/
+    agents/
+      code-reviewer.md
+      data-scientist.md
+      debugger.md
+      documentation-writer.md
+      performance-optimizer.md
+      security-auditor.md
+      test-runner.md
+src/
+  app/
+    api/
+      report/
+        route.ts
+      threads-content/
+        route.ts
+    globals.css
+    layout.tsx
+    page.tsx
+    providers.tsx
+  components/
+    threads/
+      ContentCreatorUI.tsx
+    ui/
+      accordion.tsx
+      avatar.tsx
+      badge.tsx
+      button.tsx
+      card.tsx
+      checkbox.tsx
+      dropdown-menu.tsx
+      file-upload.tsx
+      form.tsx
+      input.tsx
+      label.tsx
+      select.tsx
+      separator.tsx
+      sheet.tsx
+      textarea.tsx
+      toast.tsx
+      toaster.tsx
+  hooks/
+    use-toast.ts
+  lib/
+    report/
+      generator.ts
+    threads-content/
+      content-creator.ts
+    utils.ts
+.cursorignore
+.gitignore
+components.json
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+sample-threads-posts.md
+tailwind.config.ts
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".claude/settings.local.json">
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'input=$(cat); MODEL=$(echo \"$input\" | jq -r \".model.display_name\"); DIR=$(echo \"$input\" | jq -r \".workspace.current_dir\"); VERSION=$(echo \"$input\" | jq -r \".version\"); NODE_VER=$(node --version 2>/dev/null || echo \"N/A\"); echo \"[$MODEL] 📁 ${DIR##*/} | Node $NODE_VER | Claude $VERSION\"'"
+  }
+}
+</file>
+
+<file path=".cursor/rules/global.mdc">
+---
+description: Common Guideline
+globs: 
+alwaysApply: true
+---
+
+
+# Senior Developer Guidelines
+
+## Must
+
+- always use client component for all components. (use `use client` directive)
+- always use promise for page.tsx params props.
+- use valid picsum.photos stock image for placeholder image
+
+## Library
+
+use following libraries for specific functionalities:
+
+1. `date-fns`: For efficient date and time handling.
+2. `ts-pattern`: For clean and type-safe branching logic.
+3. `@tanstack/react-query`: For server state management.
+4. `zustand`: For lightweight global state management.
+5. `react-use`: For commonly needed React hooks.
+6. `es-toolkit`: For robust utility functions.
+7. `lucide-react`: For customizable icons.
+8. `zod`: For schema validation and data integrity.
+9. `shadcn-ui`: For pre-built accessible UI components.
+10. `tailwindcss`: For utility-first CSS styling.
+11. `supabase`: For a backend-as-a-service solution.
+12. `react-hook-form`: For form validation and state management.
+
+## Directory Structure
+
+- src
+- src/app: Next.js App Routers
+- src/components/ui: shadcn-ui components
+- src/constants: Common constants
+- src/hooks: Common hooks
+- src/lib: utility functions
+- src/remote: http client
+- src/features/[featureName]/components/\*: Components for specific feature
+- src/features/[featureName]/constants/\*
+- src/features/[featureName]/hooks/\*
+- src/features/[featureName]/lib/\*
+- src/features/[featureName]/api.ts: api fetch functions
+
+## Solution Process:
+
+1. Rephrase Input: Transform to clear, professional prompt.
+2. Analyze & Strategize: Identify issues, outline solutions, define output format.
+3. Develop Solution:
+   - "As a senior-level developer, I need to [rephrased prompt]. To accomplish this, I need to:"
+   - List steps numerically.
+   - "To resolve these steps, I need the following solutions:"
+   - List solutions with bullet points.
+4. Validate Solution: Review, refine, test against edge cases.
+5. Evaluate Progress:
+   - If incomplete: Pause, inform user, await input.
+   - If satisfactory: Proceed to final output.
+6. Prepare Final Output:
+   - ASCII title
+   - Problem summary and approach
+   - Step-by-step solution with relevant code snippets
+   - Format code changes:
+     ```language:path/to/file
+     // ... existing code ...
+     function exampleFunction() {
+         // Modified or new code here
+     }
+     // ... existing code ...
+     ```
+   - Use appropriate formatting
+   - Describe modifications
+   - Conclude with potential improvements
+
+## Key Mindsets:
+
+1. Simplicity
+2. Readability
+3. Maintainability
+4. Testability
+5. Reusability
+6. Functional Paradigm
+7. Pragmatism
+
+## Code Guidelines:
+
+1. Early Returns
+2. Conditional Classes over ternary
+3. Descriptive Names
+4. Constants > Functions
+5. DRY
+6. Functional & Immutable
+7. Minimal Changes
+8. Pure Functions
+9. Composition over inheritance
+
+## Functional Programming:
+
+- Avoid Mutation
+- Use Map, Filter, Reduce
+- Currying and Partial Application
+- Immutability
+
+## Code-Style Guidelines
+
+- Use TypeScript for type safety.
+- Follow the coding standards defined in the ESLint configuration.
+- Ensure all components are responsive and accessible.
+- Use Tailwind CSS for styling, adhering to the defined color palette.
+- When generating code, prioritize TypeScript and React best practices.
+- Ensure that any new components are reusable and follow the existing design patterns.
+- Minimize the use of AI generated comments, instead use clearly named variables and functions.
+- Always validate user inputs and handle errors gracefully.
+- Use the existing components and pages as a reference for the new components and pages.
+
+## Performance:
+
+- Avoid Premature Optimization
+- Profile Before Optimizing
+- Optimize Judiciously
+- Document Optimizations
+
+## Comments & Documentation:
+
+- Comment function purpose
+- Use JSDoc for JS
+- Document "why" not "what"
+
+## Function Ordering:
+
+- Higher-order functionality first
+- Group related functions
+
+## Handling Bugs:
+
+- Use TODO: and FIXME: comments
+
+## Error Handling:
+
+- Use appropriate techniques
+- Prefer returning errors over exceptions
+
+## Testing:
+
+- Unit tests for core functionality
+- Consider integration and end-to-end tests
+
+## Next.js
+
+- you must use promise for page.tsx params props.
+
+## Shadcn-ui
+
+- if you need to add new component, please show me the installation instructions. I'll paste it into terminal.
+- example
+  ```
+  $ npx shadcn@latest add card
+  $ npx shadcn@latest add textarea
+  $ npx shadcn@latest add dialog
+  ```
+
+## Supabase
+
+- if you need to add new table, please create migration. I'll paste it into supabase.
+- do not run supabase locally
+- store migration query for `.sql` file. in /supabase/migrations/
+
+## Package Manager
+
+- use npm as package manager.
+
+## Korean Text
+
+- 코드를 생성한 후에 utf-8 기준으로 깨지는 한글이 있는지 확인해주세요. 만약 있다면 수정해주세요.
+
+You are a senior full-stack developer, one of those rare 10x devs. Your focus: clean, maintainable, high-quality code.
+Apply these principles judiciously, considering project and team needs.
+</file>
+
+<file path="~/.claude/agents/code-reviewer.md">
+---
+name: code-reviewer
+description: Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code.
+tools: Read, Grep, Glob, Bash
+---
+
+You are a senior code reviewer ensuring high standards of code quality and security.
+
+When invoked:
+1. Run git diff to see recent changes
+2. Focus on modified files
+3. Begin review immediately
+
+Review checklist:
+- Code is simple and readable
+- Functions and variables are well-named
+- No duplicated code
+- Proper error handling
+- No exposed secrets or API keys
+- Input validation implemented
+- Good test coverage
+- Performance considerations addressed
+
+Provide feedback organized by priority:
+- Critical issues (must fix)
+- Warnings (should fix)
+- Suggestions (consider improving)
+
+Include specific examples of how to fix issues.
+</file>
+
+<file path="~/.claude/agents/data-scientist.md">
+---
+name: data-scientist
+description: Data analysis expert for SQL queries, BigQuery operations, and data insights. Use proactively for data analysis tasks and queries.
+tools: Bash, Read, Write
+---
+
+You are a data scientist specializing in SQL and BigQuery analysis.
+
+When invoked:
+1. Understand the data analysis requirement
+2. Write efficient SQL queries
+3. Use BigQuery command line tools (bq) when appropriate
+4. Analyze and summarize results
+5. Present findings clearly
+
+Key practices:
+- Write optimized SQL queries with proper filters
+- Use appropriate aggregations and joins
+- Include comments explaining complex logic
+- Format results for readability
+- Provide data-driven recommendations
+
+For each analysis:
+- Explain the query approach
+- Document any assumptions
+- Highlight key findings
+- Suggest next steps based on data
+
+Always ensure queries are efficient and cost-effective.
+</file>
+
+<file path="~/.claude/agents/debugger.md">
+---
+name: debugger
+description: Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encountering any issues.
+tools: Read, Edit, Bash, Grep, Glob
+---
+
+You are an expert debugger specializing in root cause analysis.
+
+When invoked:
+1. Capture error message and stack trace
+2. Identify reproduction steps
+3. Isolate the failure location
+4. Implement minimal fix
+5. Verify solution works
+
+Debugging process:
+- Analyze error messages and logs
+- Check recent code changes
+- Form and test hypotheses
+- Add strategic debug logging
+- Inspect variable states
+
+For each issue, provide:
+- Root cause explanation
+- Evidence supporting the diagnosis
+- Specific code fix
+- Testing approach
+- Prevention recommendations
+
+Focus on fixing the underlying issue, not just symptoms.
+</file>
+
+<file path="~/.claude/agents/documentation-writer.md">
+---
+name: documentation-writer
+description: Technical documentation specialist for creating and updating docs, READMEs, and code comments. Use after implementing new features or APIs.
+tools: Read, Write, Edit, Grep, Glob
+---
+
+You are a technical documentation expert creating clear, comprehensive documentation.
+
+When invoked:
+1. Analyze code structure and functionality
+2. Identify undocumented features
+3. Create appropriate documentation
+4. Update existing docs
+5. Add inline comments where needed
+
+Documentation types:
+- README.md (project overview, setup, usage)
+- API documentation (endpoints, parameters, responses)
+- Code comments (complex logic explanation)
+- Architecture diagrams (system design)
+- Configuration guides
+- Troubleshooting guides
+- Migration guides
+
+For each documentation:
+- Use clear, concise language
+- Include code examples
+- Add visual diagrams when helpful
+- Provide step-by-step instructions
+- Include common gotchas
+- Link to related resources
+
+Follow documentation best practices and maintain consistency with existing docs.
+</file>
+
+<file path="~/.claude/agents/performance-optimizer.md">
+---
+name: performance-optimizer
+description: Performance optimization specialist for identifying and fixing bottlenecks. Use when performance issues are detected or optimization is needed.
+tools: Read, Edit, Bash, Grep, Glob
+---
+
+You are a performance optimization expert focused on improving application speed and efficiency.
+
+When invoked:
+1. Profile current performance
+2. Identify bottlenecks
+3. Implement optimizations
+4. Measure improvements
+5. Document changes
+
+Optimization areas:
+- Algorithm complexity (O(n) analysis)
+- Database query optimization
+- Caching strategies
+- Bundle size reduction
+- Memory usage optimization
+- Async/parallel processing
+- Network request optimization
+
+For each optimization:
+- Measure baseline performance
+- Explain the bottleneck
+- Implement specific fix
+- Quantify improvement
+- Document trade-offs
+
+Focus on measurable improvements with minimal code complexity.
+</file>
+
+<file path="~/.claude/agents/security-auditor.md">
+---
+name: security-auditor
+description: Security specialist for vulnerability detection and secure coding practices. Use PROACTIVELY when handling sensitive data or authentication.
+tools: Read, Grep, Glob, Bash
+---
+
+You are a security auditor ensuring code follows best security practices.
+
+When invoked:
+1. Scan for common vulnerabilities
+2. Check authentication/authorization
+3. Review data handling
+4. Verify input validation
+5. Audit dependencies
+
+Security checklist:
+- No hardcoded secrets or API keys
+- Proper input sanitization
+- SQL injection prevention
+- XSS protection
+- CSRF tokens implemented
+- Secure session management
+- Encrypted sensitive data
+- Proper error handling (no stack traces in production)
+- Dependency vulnerabilities (npm audit)
+- HTTPS enforcement
+
+For each finding:
+- Severity level (Critical/High/Medium/Low)
+- Vulnerability description
+- Proof of concept (if applicable)
+- Remediation steps
+- Prevention guidelines
+
+Follow OWASP Top 10 guidelines and security best practices.
+</file>
+
+<file path="~/.claude/agents/test-runner.md">
+---
+name: test-runner
+description: Test automation expert. Use PROACTIVELY to run tests and fix failures after code changes.
+tools: Bash, Read, Edit, Grep
+---
+
+You are a test automation expert. When you see code changes, proactively run the appropriate tests. If tests fail, analyze the failures and fix them while preserving the original test intent.
+
+When invoked:
+1. Identify the testing framework (npm test, pytest, cargo test, etc.)
+2. Run all relevant tests
+3. If tests fail, analyze error messages
+4. Fix failing tests or implementation issues
+5. Re-run tests to confirm fixes
+
+Test running process:
+- Check package.json, Cargo.toml, or requirements.txt for test commands
+- Run the full test suite first
+- If failures occur, run specific failing tests in isolation
+- Add missing test cases if coverage gaps are found
+
+For each test failure:
+- Provide clear failure reason
+- Show the exact fix
+- Verify the fix doesn't break other tests
+- Suggest additional test cases if needed
+
+Always ensure all tests pass before completing the task.
+</file>
+
+<file path="src/app/api/report/route.ts">
+/**
+ * API Route: /api/report
+ * Threads 리포트 생성 및 공유 API
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+import { ReportGenerator, parseCommand } from '@/lib/report/generator';
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { command } = body;
+
+    // 명령어 파싱
+    const config = parseCommand(command);
+
+    // 리포트 생성
+    const generator = new ReportGenerator(config);
+    const reportPath = await generator.generateReport();
+
+    return NextResponse.json({
+      success: true,
+      message: 'Report generated successfully',
+      path: reportPath,
+      config,
+    });
+  } catch (error) {
+    console.error('Report generation error:', error);
+    return NextResponse.json(
+      { 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Unknown error' 
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  
+  // URL 파라미터로 리포트 설정 받기
+  const config = {
+    account: searchParams.get('account') || 'k.madlab',
+    platform: searchParams.get('platform') || 'threads',
+    type: searchParams.get('type') || 'weekly',
+    format: searchParams.get('format') || 'pdf',
+  };
+
+  return NextResponse.json({
+    message: 'Use POST method to generate report',
+    example: {
+      command: `export_report --account ${config.account} --platform ${config.platform} --type ${config.type} --format ${config.format}`,
+    },
+    availableOptions: {
+      platforms: ['threads', 'instagram', 'tiktok'],
+      types: ['daily', 'weekly', 'monthly'],
+      formats: ['pdf', 'html', 'json'],
+    },
+  });
+}
+</file>
+
+<file path="src/app/api/threads-content/route.ts">
+/**
+ * Threads Content API Route
+ * 쓰레드 콘텐츠 생성 API
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+import { ThreadsContentCreator } from '@/lib/threads-content/content-creator';
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { action, ...params } = body;
+    
+    const creator = new ThreadsContentCreator();
+    let result;
+
+    switch (action) {
+      case 'generate_ideas':
+        result = await creator.generateContentIdeas(
+          params.topic,
+          params.count || 5,
+          params.targetAudience
+        );
+        break;
+
+      case 'apply_template':
+        result = creator.applyTemplate(
+          params.templateId,
+          params.variables
+        );
+        break;
+
+      case 'optimize':
+        result = creator.optimizeContent(params.content);
+        break;
+
+      case 'best_times':
+        result = creator.getBestPostingTimes(
+          params.audience,
+          params.timezone
+        );
+        break;
+
+      case 'suggest_hashtags':
+        result = creator.generateHashtags(
+          params.topic,
+          params.count || 5
+        );
+        break;
+
+      case 'get_templates':
+        result = creator.getTemplates();
+        break;
+
+      default:
+        return NextResponse.json(
+          { error: 'Invalid action' },
+          { status: 400 }
+        );
+    }
+
+    return NextResponse.json({ success: true, data: result });
+  } catch (error) {
+    console.error('Content generation error:', error);
+    return NextResponse.json(
+      { error: 'Failed to generate content' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET() {
+  const creator = new ThreadsContentCreator();
+  const templates = creator.getTemplates();
+  
+  return NextResponse.json({
+    templates,
+    actions: [
+      'generate_ideas',
+      'apply_template',
+      'optimize',
+      'best_times',
+      'suggest_hashtags',
+      'get_templates'
+    ],
+    info: {
+      description: 'Threads Content Creation API',
+      version: '1.0.0'
+    }
+  });
+}
+</file>
+
+<file path="src/app/globals.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+</file>
+
+<file path="src/app/layout.tsx">
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import Providers from './providers';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+export const metadata: Metadata = {
+  title: 'Create Next App',
+  description: 'Generated by create next app',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}
+</file>
+
+<file path="src/app/page.tsx">
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { CheckCircle, Github, Copy, Sparkles } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import axios from 'axios';
+
+const PACKAGE_NAME = '@easynext/cli';
+const CURRENT_VERSION = 'v0.1.35';
+
+function latestVersion(packageName: string) {
+  return axios
+    .get('https://registry.npmjs.org/' + packageName + '/latest')
+    .then((res) => res.data.version);
+}
+
+export default function Home() {
+  const { toast } = useToast();
+  const [latest, setLatest] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchLatestVersion = async () => {
+      try {
+        const version = await latestVersion(PACKAGE_NAME);
+        setLatest(`v${version}`);
+      } catch (error) {
+        console.error('Failed to fetch version info:', error);
+      }
+    };
+    fetchLatestVersion();
+  }, []);
+
+  const handleCopyCommand = () => {
+    navigator.clipboard.writeText(`npm install -g ${PACKAGE_NAME}@latest`);
+    toast({
+      description: 'Update command copied to clipboard',
+    });
+  };
+
+  const needsUpdate = latest && latest !== CURRENT_VERSION;
+
+  return (
+    <div className="flex min-h-screen relative overflow-hidden">
+      {/* Main Content */}
+      <div className="min-h-screen flex bg-gray-100">
+        <div className="flex flex-col p-5 md:p-8 space-y-4">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter !leading-tight text-left">
+            Easiest way to start
+            <br /> Next.js project
+            <br /> with Cursor
+          </h1>
+
+          <p className="text-lg text-muted-foreground">
+            Get Pro-created Next.js bootstrap just in seconds
+          </p>
+
+          <div className="flex items-center gap-2">
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="gap-2 w-fit rounded-full px-4 py-2 border border-black"
+            >
+              <a href="https://github.com/easynextjs/easynext" target="_blank">
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="gap-2 w-fit rounded-full px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white"
+            >
+              <a href="https://easynext.org/premium" target="_blank">
+                <Sparkles className="w-4 h-4" />
+                Premium
+              </a>
+            </Button>
+          </div>
+          <Section />
+        </div>
+      </div>
+
+      <div className="min-h-screen ml-16 flex-1 flex flex-col items-center justify-center space-y-4">
+        <div className="flex flex-col items-center space-y-2">
+          <p className="text-muted-foreground">
+            Current Version: {CURRENT_VERSION}
+          </p>
+          <p className="text-muted-foreground">
+            Latest Version:{' '}
+            <span className="font-bold">{latest || 'Loading...'}</span>
+          </p>
+        </div>
+
+        {needsUpdate && (
+          <div className="flex flex-col items-center space-y-2">
+            <p className="text-yellow-600">New version available!</p>
+            <p className="text-sm text-muted-foreground">
+              Copy and run the command below to update:
+            </p>
+            <div className="relative group">
+              <pre className="bg-gray-100 p-4 rounded-lg">
+                npm install -g {PACKAGE_NAME}@latest
+              </pre>
+              <button
+                onClick={handleCopyCommand}
+                className="absolute top-2 right-2 p-2 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <Copy className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Section() {
+  const items = [
+    { href: 'https://nextjs.org/', label: 'Next.js' },
+    { href: 'https://ui.shadcn.com/', label: 'shadcn/ui' },
+    { href: 'https://tailwindcss.com/', label: 'Tailwind CSS' },
+    { href: 'https://www.framer.com/motion/', label: 'framer-motion' },
+    { href: 'https://zod.dev/', label: 'zod' },
+    { href: 'https://date-fns.org/', label: 'date-fns' },
+    { href: 'https://ts-pattern.dev/', label: 'ts-pattern' },
+    { href: 'https://es-toolkit.dev/', label: 'es-toolkit' },
+    { href: 'https://zustand.docs.pmnd.rs/', label: 'zustand' },
+    { href: 'https://supabase.com/', label: 'supabase' },
+    { href: 'https://react-hook-form.com/', label: 'react-hook-form' },
+  ];
+
+  return (
+    <div className="flex flex-col py-5 md:py-8 space-y-2 opacity-75">
+      <p className="font-semibold">What&apos;s Included</p>
+
+      <div className="flex flex-col space-y-1 text-muted-foreground">
+        {items.map((item) => (
+          <SectionItem key={item.href} href={item.href}>
+            {item.label}
+          </SectionItem>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SectionItem({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <a
+      href={href}
+      className="flex items-center gap-2 underline"
+      target="_blank"
+    >
+      <CheckCircle className="w-4 h-4" />
+      <p>{children}</p>
+    </a>
+  );
+}
+</file>
+
+<file path="src/app/providers.tsx">
+// In Next.js, this file would be called: app/providers.tsx
+'use client';
+
+// Since QueryClientProvider relies on useContext under the hood, we have to put 'use client' on top
+import {
+  isServer,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
+import { ThemeProvider } from 'next-themes';
+
+function makeQueryClient() {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        // With SSR, we usually want to set some default staleTime
+        // above 0 to avoid refetching immediately on the client
+        staleTime: 60 * 1000,
+      },
+    },
+  });
+}
+
+let browserQueryClient: QueryClient | undefined = undefined;
+
+function getQueryClient() {
+  if (isServer) {
+    // Server: always make a new query client
+    return makeQueryClient();
+  } else {
+    // Browser: make a new query client if we don't already have one
+    // This is very important, so we don't re-make a new client if React
+    // suspends during the initial render. This may not be needed if we
+    // have a suspense boundary BELOW the creation of the query client
+    if (!browserQueryClient) browserQueryClient = makeQueryClient();
+    return browserQueryClient;
+  }
+}
+
+export default function Providers({ children }: { children: React.ReactNode }) {
+  // NOTE: Avoid useState when initializing the query client if you don't
+  //       have a suspense boundary between this and the code that may
+  //       suspend because React will throw away the client on the initial
+  //       render if it suspends and there is no boundary
+  const queryClient = getQueryClient();
+
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </ThemeProvider>
+  );
+}
+</file>
+
+<file path="src/components/threads/ContentCreatorUI.tsx">
+'use client';
+
+import React, { useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Separator } from '@/components/ui/separator';
+import { 
+  Sparkles, 
+  Hash, 
+  Clock, 
+  TrendingUp, 
+  Copy,
+  RefreshCw,
+  Send,
+  BookOpen,
+  Lightbulb,
+  Target
+} from 'lucide-react';
+
+export default function ContentCreatorUI() {
+  const [topic, setTopic] = useState('');
+  const [generatedIdeas, setGeneratedIdeas] = useState<any[]>([]);
+  const [selectedTemplate, setSelectedTemplate] = useState('');
+  const [contentText, setContentText] = useState('');
+  const [optimizedContent, setOptimizedContent] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+
+  // 아이디어 생성
+  const generateIdeas = async () => {
+    if (!topic) return;
+    
+    setLoading(true);
+    try {
+      const response = await fetch('/api/threads-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'generate_ideas',
+          topic,
+          count: 5
+        })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        setGeneratedIdeas(data.data);
+      }
+    } catch (error) {
+      console.error('Failed to generate ideas:', error);
+    }
+    setLoading(false);
+  };
+
+  // 콘텐츠 최적화
+  const optimizeContent = async () => {
+    if (!contentText) return;
+    
+    setLoading(true);
+    try {
+      const response = await fetch('/api/threads-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'optimize',
+          content: contentText
+        })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        setOptimizedContent(data.data);
+      }
+    } catch (error) {
+      console.error('Failed to optimize content:', error);
+    }
+    setLoading(false);
+  };
+
+  // 클립보드 복사
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    // Toast 알림 추가 가능
+  };
+
+  return (
+    <div className="container mx-auto p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">Threads 콘텐츠 작성 도우미</h1>
+          <p className="text-muted-foreground mt-2">
+            AI 기반 콘텐츠 아이디어 생성 및 최적화
+          </p>
+        </div>
+      </div>
+
+      <Tabs defaultValue="ideas" className="space-y-4">
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="ideas">
+            <Lightbulb className="w-4 h-4 mr-2" />
+            아이디어
+          </TabsTrigger>
+          <TabsTrigger value="templates">
+            <BookOpen className="w-4 h-4 mr-2" />
+            템플릿
+          </TabsTrigger>
+          <TabsTrigger value="optimize">
+            <Sparkles className="w-4 h-4 mr-2" />
+            최적화
+          </TabsTrigger>
+          <TabsTrigger value="schedule">
+            <Clock className="w-4 h-4 mr-2" />
+            스케줄
+          </TabsTrigger>
+        </TabsList>
+
+        {/* 아이디어 생성 탭 */}
+        <TabsContent value="ideas" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>AI 콘텐츠 아이디어 생성</CardTitle>
+              <CardDescription>
+                주제를 입력하면 관련 콘텐츠 아이디어를 생성합니다
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex gap-2">
+                <Input
+                  placeholder="예: AI 마케팅, 스타트업 성장 전략..."
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                  className="flex-1"
+                />
+                <Button onClick={generateIdeas} disabled={loading}>
+                  <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                  생성하기
+                </Button>
+              </div>
+
+              {generatedIdeas.length > 0 && (
+                <ScrollArea className="h-[400px] w-full rounded-md border p-4">
+                  <div className="space-y-4">
+                    {generatedIdeas.map((idea, index) => (
+                      <Card key={index}>
+                        <CardContent className="p-4">
+                          <div className="space-y-3">
+                            <div className="flex items-start justify-between">
+                              <h3 className="font-semibold">{idea.hook}</h3>
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => copyToClipboard(
+                                  `${idea.hook}\n\n${idea.body}\n\n${idea.cta}\n\n${idea.hashtags.join(' ')}`
+                                )}
+                              >
+                                <Copy className="w-4 h-4" />
+                              </Button>
+                            </div>
+                            <p className="text-sm whitespace-pre-line">{idea.body}</p>
+                            <p className="text-sm font-medium">{idea.cta}</p>
+                            <div className="flex flex-wrap gap-1">
+                              {idea.hashtags.map((tag: string, i: number) => (
+                                <Badge key={i} variant="secondary">
+                                  {tag}
+                                </Badge>
+                              ))}
+                            </div>
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <TrendingUp className="w-3 h-3" />
+                              예상 참여: {idea.estimatedEngagement}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </ScrollArea>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* 템플릿 탭 */}
+        <TabsContent value="templates" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>콘텐츠 템플릿</CardTitle>
+              <CardDescription>
+                검증된 템플릿을 활용해 빠르게 콘텐츠를 작성하세요
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-2">
+                {[
+                  { id: 'product-launch', name: '신제품 출시', icon: '🚀' },
+                  { id: 'tips-and-tricks', name: '팁 & 트릭', icon: '💡' },
+                  { id: 'user-testimonial', name: '고객 후기', icon: '🌟' },
+                  { id: 'behind-the-scenes', name: '비하인드', icon: '👀' },
+                  { id: 'question-engagement', name: '질문형', icon: '🤔' }
+                ].map((template) => (
+                  <Card 
+                    key={template.id}
+                    className="cursor-pointer hover:border-primary"
+                    onClick={() => setSelectedTemplate(template.id)}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{template.icon}</span>
+                        <div>
+                          <h4 className="font-semibold">{template.name}</h4>
+                          <p className="text-xs text-muted-foreground">
+                            클릭하여 템플릿 사용
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* 최적화 탭 */}
+        <TabsContent value="optimize" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>콘텐츠 최적화</CardTitle>
+              <CardDescription>
+                작성한 콘텐츠를 분석하고 개선점을 제안합니다
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Textarea
+                placeholder="최적화할 콘텐츠를 입력하세요..."
+                value={contentText}
+                onChange={(e) => setContentText(e.target.value)}
+                className="min-h-[200px]"
+              />
+              <Button onClick={optimizeContent} disabled={loading}>
+                <Sparkles className="w-4 h-4 mr-2" />
+                최적화 분석
+              </Button>
+
+              {optimizedContent && (
+                <div className="space-y-4">
+                  <Separator />
+                  <div>
+                    <h4 className="font-semibold mb-2">최적화된 콘텐츠</h4>
+                    <Card>
+                      <CardContent className="p-4">
+                        <p className="whitespace-pre-line">{optimizedContent.optimized}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">개선 제안</h4>
+                    <div className="space-y-2">
+                      {optimizedContent.suggestions.map((suggestion: string, i: number) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <Target className="w-4 h-4 mt-0.5 text-primary" />
+                          <p className="text-sm">{suggestion}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* 스케줄 탭 */}
+        <TabsContent value="schedule" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>최적 업로드 시간</CardTitle>
+              <CardDescription>
+                타겟 오디언스에 따른 최적의 업로드 시간을 확인하세요
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <Select defaultValue="general">
+                  <SelectTrigger>
+                    <SelectValue placeholder="타겟 오디언스 선택" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="general">일반</SelectItem>
+                    <SelectItem value="business">비즈니스</SelectItem>
+                    <SelectItem value="young">젊은층</SelectItem>
+                    <SelectItem value="global">글로벌</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                <div className="grid grid-cols-4 gap-2">
+                  {['09:00', '12:00', '18:00', '20:00'].map((time) => (
+                    <Card key={time}>
+                      <CardContent className="p-3 text-center">
+                        <Clock className="w-4 h-4 mx-auto mb-1" />
+                        <p className="font-semibold">{time}</p>
+                        <p className="text-xs text-muted-foreground">KST</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/accordion.tsx">
+"use client"
+
+import * as React from "react"
+import * as AccordionPrimitive from "@radix-ui/react-accordion"
+import { ChevronDown } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Accordion = AccordionPrimitive.Root
+
+const AccordionItem = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+>(({ className, ...props }, ref) => (
+  <AccordionPrimitive.Item
+    ref={ref}
+    className={cn("border-b", className)}
+    {...props}
+  />
+))
+AccordionItem.displayName = "AccordionItem"
+
+const AccordionTrigger = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+  <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+    </AccordionPrimitive.Trigger>
+  </AccordionPrimitive.Header>
+))
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
+
+const AccordionContent = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <AccordionPrimitive.Content
+    ref={ref}
+    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    {...props}
+  >
+    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+  </AccordionPrimitive.Content>
+))
+
+AccordionContent.displayName = AccordionPrimitive.Content.displayName
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+</file>
+
+<file path="src/components/ui/avatar.tsx">
+"use client"
+
+import * as React from "react"
+import * as AvatarPrimitive from "@radix-ui/react-avatar"
+
+import { cn } from "@/lib/utils"
+
+const Avatar = React.forwardRef<
+  React.ElementRef<typeof AvatarPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <AvatarPrimitive.Root
+    ref={ref}
+    className={cn(
+      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
+      className
+    )}
+    {...props}
+  />
+))
+Avatar.displayName = AvatarPrimitive.Root.displayName
+
+const AvatarImage = React.forwardRef<
+  React.ElementRef<typeof AvatarPrimitive.Image>,
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
+>(({ className, ...props }, ref) => (
+  <AvatarPrimitive.Image
+    ref={ref}
+    className={cn("aspect-square h-full w-full", className)}
+    {...props}
+  />
+))
+AvatarImage.displayName = AvatarPrimitive.Image.displayName
+
+const AvatarFallback = React.forwardRef<
+  React.ElementRef<typeof AvatarPrimitive.Fallback>,
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
+>(({ className, ...props }, ref) => (
+  <AvatarPrimitive.Fallback
+    ref={ref}
+    className={cn(
+      "flex h-full w-full items-center justify-center rounded-full bg-muted",
+      className
+    )}
+    {...props}
+  />
+))
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
+
+export { Avatar, AvatarImage, AvatarFallback }
+</file>
+
+<file path="src/components/ui/badge.tsx">
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const badgeVariants = cva(
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
+
+function Badge({ className, variant, ...props }: BadgeProps) {
+  return (
+    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+  );
+}
+
+export { Badge, badgeVariants };
+</file>
+
+<file path="src/components/ui/button.tsx">
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
+</file>
+
+<file path="src/components/ui/card.tsx">
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      className
+    )}
+    {...props}
+  />
+))
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "text-2xl font-semibold leading-none tracking-tight",
+      className
+    )}
+    {...props}
+  />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+</file>
+
+<file path="src/components/ui/checkbox.tsx">
+"use client";
+
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Check } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <CheckboxPrimitive.Root
+    ref={ref}
+    className={cn(
+      "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      className,
+    )}
+    {...props}
+  >
+    <CheckboxPrimitive.Indicator
+      className={cn("flex items-center justify-center text-current")}
+    >
+      <Check className="h-4 w-4" />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+));
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+
+export { Checkbox };
+</file>
+
+<file path="src/components/ui/dropdown-menu.tsx">
+"use client";
+
+import * as React from "react";
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import { Check, ChevronRight, Circle } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+const DropdownMenu = DropdownMenuPrimitive.Root;
+
+const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+
+const DropdownMenuGroup = DropdownMenuPrimitive.Group;
+
+const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
+
+const DropdownMenuSub = DropdownMenuPrimitive.Sub;
+
+const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
+
+const DropdownMenuSubTrigger = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
+    inset?: boolean;
+  }
+>(({ className, inset, children, ...props }, ref) => (
+  <DropdownMenuPrimitive.SubTrigger
+    ref={ref}
+    className={cn(
+      "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
+      inset && "pl-8",
+      className,
+    )}
+    {...props}
+  >
+    {children}
+    <ChevronRight className="ml-auto h-4 w-4" />
+  </DropdownMenuPrimitive.SubTrigger>
+));
+DropdownMenuSubTrigger.displayName =
+  DropdownMenuPrimitive.SubTrigger.displayName;
+
+const DropdownMenuSubContent = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
+>(({ className, ...props }, ref) => (
+  <DropdownMenuPrimitive.SubContent
+    ref={ref}
+    className={cn(
+      "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className,
+    )}
+    {...props}
+  />
+));
+DropdownMenuSubContent.displayName =
+  DropdownMenuPrimitive.SubContent.displayName;
+
+const DropdownMenuContent = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+>(({ className, sideOffset = 4, ...props }, ref) => (
+  <DropdownMenuPrimitive.Portal>
+    <DropdownMenuPrimitive.Content
+      ref={ref}
+      sideOffset={sideOffset}
+      className={cn(
+        "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        className,
+      )}
+      {...props}
+    />
+  </DropdownMenuPrimitive.Portal>
+));
+DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
+
+const DropdownMenuItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+    inset?: boolean;
+  }
+>(({ className, inset, ...props }, ref) => (
+  <DropdownMenuPrimitive.Item
+    ref={ref}
+    className={cn(
+      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      inset && "pl-8",
+      className,
+    )}
+    {...props}
+  />
+));
+DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
+
+const DropdownMenuCheckboxItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
+>(({ className, children, checked, ...props }, ref) => (
+  <DropdownMenuPrimitive.CheckboxItem
+    ref={ref}
+    className={cn(
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      className,
+    )}
+    checked={checked}
+    {...props}
+  >
+    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <DropdownMenuPrimitive.ItemIndicator>
+        <Check className="h-4 w-4" />
+      </DropdownMenuPrimitive.ItemIndicator>
+    </span>
+    {children}
+  </DropdownMenuPrimitive.CheckboxItem>
+));
+DropdownMenuCheckboxItem.displayName =
+  DropdownMenuPrimitive.CheckboxItem.displayName;
+
+const DropdownMenuRadioItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
+>(({ className, children, ...props }, ref) => (
+  <DropdownMenuPrimitive.RadioItem
+    ref={ref}
+    className={cn(
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      className,
+    )}
+    {...props}
+  >
+    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <DropdownMenuPrimitive.ItemIndicator>
+        <Circle className="h-2 w-2 fill-current" />
+      </DropdownMenuPrimitive.ItemIndicator>
+    </span>
+    {children}
+  </DropdownMenuPrimitive.RadioItem>
+));
+DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
+
+const DropdownMenuLabel = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
+    inset?: boolean;
+  }
+>(({ className, inset, ...props }, ref) => (
+  <DropdownMenuPrimitive.Label
+    ref={ref}
+    className={cn(
+      "px-2 py-1.5 text-sm font-semibold",
+      inset && "pl-8",
+      className,
+    )}
+    {...props}
+  />
+));
+DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
+
+const DropdownMenuSeparator = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
+>(({ className, ...props }, ref) => (
+  <DropdownMenuPrimitive.Separator
+    ref={ref}
+    className={cn("-mx-1 my-1 h-px bg-muted", className)}
+    {...props}
+  />
+));
+DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
+
+const DropdownMenuShortcut = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => {
+  return (
+    <span
+      className={cn("ml-auto text-xs tracking-widest opacity-60", className)}
+      {...props}
+    />
+  );
+};
+DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
+
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
+};
+</file>
+
+<file path="src/components/ui/file-upload.tsx">
+"use client";
+
+import { cn } from "@/lib/utils";
+import { ChangeEvent, useRef } from "react";
+
+interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement> {
+  onFileChange: (file: File) => void;
+  accept?: string;
+}
+
+export function FileUpload({
+  className,
+  onFileChange,
+  accept = "image/*",
+  children,
+  ...props
+}: FileUploadProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleClick = () => {
+    inputRef.current?.click();
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      onFileChange(file);
+    }
+  };
+
+  return (
+    <div
+      onClick={handleClick}
+      className={cn(
+        "cursor-pointer rounded-md border-2 border-dashed border-gray-300 p-4 hover:border-gray-400",
+        className
+      )}
+      {...props}
+    >
+      <input
+        type="file"
+        ref={inputRef}
+        onChange={handleChange}
+        accept={accept}
+        className="hidden"
+      />
+      {children}
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/form.tsx">
+'use client';
+
+import * as React from 'react';
+import * as LabelPrimitive from '@radix-ui/react-label';
+import { Slot } from '@radix-ui/react-slot';
+import {
+  Controller,
+  ControllerProps,
+  FieldPath,
+  FieldValues,
+  FormProvider,
+  useFormContext,
+} from 'react-hook-form';
+
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
+
+const Form = FormProvider;
+
+type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> = {
+  name: TName;
+};
+
+const FormFieldContext = React.createContext<FormFieldContextValue>(
+  {} as FormFieldContextValue,
+);
+
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) => {
+  return (
+    <FormFieldContext.Provider value={{ name: props.name }}>
+      <Controller {...props} />
+    </FormFieldContext.Provider>
+  );
+};
+
+const useFormField = () => {
+  const fieldContext = React.useContext(FormFieldContext);
+  const itemContext = React.useContext(FormItemContext);
+  const { getFieldState, formState } = useFormContext();
+
+  const fieldState = getFieldState(fieldContext.name, formState);
+
+  if (!fieldContext) {
+    throw new Error('useFormField should be used within <FormField>');
+  }
+
+  const { id } = itemContext;
+
+  return {
+    id,
+    name: fieldContext.name,
+    formItemId: `${id}-form-item`,
+    formDescriptionId: `${id}-form-item-description`,
+    formMessageId: `${id}-form-item-message`,
+    ...fieldState,
+  };
+};
+
+type FormItemContextValue = {
+  id: string;
+};
+
+const FormItemContext = React.createContext<FormItemContextValue>(
+  {} as FormItemContextValue,
+);
+
+const FormItem = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const id = React.useId();
+
+  return (
+    <FormItemContext.Provider value={{ id }}>
+      <div ref={ref} className={cn('space-y-2', className)} {...props} />
+    </FormItemContext.Provider>
+  );
+});
+FormItem.displayName = 'FormItem';
+
+const FormLabel = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+>(({ className, ...props }, ref) => {
+  const { error, formItemId } = useFormField();
+
+  return (
+    <Label
+      ref={ref}
+      className={cn(error && 'text-destructive', className)}
+      htmlFor={formItemId}
+      {...props}
+    />
+  );
+});
+FormLabel.displayName = 'FormLabel';
+
+const FormControl = React.forwardRef<
+  React.ElementRef<typeof Slot>,
+  React.ComponentPropsWithoutRef<typeof Slot>
+>(({ ...props }, ref) => {
+  const { error, formItemId, formDescriptionId, formMessageId } =
+    useFormField();
+
+  return (
+    <Slot
+      ref={ref}
+      id={formItemId}
+      aria-describedby={
+        !error
+          ? `${formDescriptionId}`
+          : `${formDescriptionId} ${formMessageId}`
+      }
+      aria-invalid={!!error}
+      {...props}
+    />
+  );
+});
+FormControl.displayName = 'FormControl';
+
+const FormDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => {
+  const { formDescriptionId } = useFormField();
+
+  return (
+    <p
+      ref={ref}
+      id={formDescriptionId}
+      className={cn('text-sm text-muted-foreground', className)}
+      {...props}
+    />
+  );
+});
+FormDescription.displayName = 'FormDescription';
+
+const FormMessage = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, children, ...props }, ref) => {
+  const { error, formMessageId } = useFormField();
+  const body = error ? String(error?.message) : children;
+
+  if (!body) {
+    return null;
+  }
+
+  return (
+    <p
+      ref={ref}
+      id={formMessageId}
+      className={cn('text-sm font-medium text-destructive', className)}
+      {...props}
+    >
+      {body}
+    </p>
+  );
+});
+FormMessage.displayName = 'FormMessage';
+
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+};
+</file>
+
+<file path="src/components/ui/input.tsx">
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+Input.displayName = "Input";
+
+export { Input };
+</file>
+
+<file path="src/components/ui/label.tsx">
+"use client";
+
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const labelVariants = cva(
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+);
+
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+    VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root
+    ref={ref}
+    className={cn(labelVariants(), className)}
+    {...props}
+  />
+));
+Label.displayName = LabelPrimitive.Root.displayName;
+
+export { Label };
+</file>
+
+<file path="src/components/ui/select.tsx">
+'use client';
+
+import * as React from 'react';
+import * as SelectPrimitive from '@radix-ui/react-select';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+
+const Select = SelectPrimitive.Root;
+
+const SelectGroup = SelectPrimitive.Group;
+
+const SelectValue = SelectPrimitive.Value;
+
+const SelectTrigger = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      'flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+    <SelectPrimitive.Icon asChild>
+      <ChevronDown className="h-4 w-4 opacity-50" />
+    </SelectPrimitive.Icon>
+  </SelectPrimitive.Trigger>
+));
+SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
+
+const SelectScrollUpButton = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollUpButton
+    ref={ref}
+    className={cn(
+      'flex cursor-default items-center justify-center py-1',
+      className,
+    )}
+    {...props}
+  >
+    <ChevronUp className="h-4 w-4" />
+  </SelectPrimitive.ScrollUpButton>
+));
+SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
+
+const SelectScrollDownButton = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollDownButton
+    ref={ref}
+    className={cn(
+      'flex cursor-default items-center justify-center py-1',
+      className,
+    )}
+    {...props}
+  >
+    <ChevronDown className="h-4 w-4" />
+  </SelectPrimitive.ScrollDownButton>
+));
+SelectScrollDownButton.displayName =
+  SelectPrimitive.ScrollDownButton.displayName;
+
+const SelectContent = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+>(({ className, children, position = 'popper', ...props }, ref) => (
+  <SelectPrimitive.Portal>
+    <SelectPrimitive.Content
+      ref={ref}
+      className={cn(
+        'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+        position === 'popper' &&
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+        className,
+      )}
+      position={position}
+      {...props}
+    >
+      <SelectScrollUpButton />
+      <SelectPrimitive.Viewport
+        className={cn(
+          'p-1',
+          position === 'popper' &&
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+        )}
+      >
+        {children}
+      </SelectPrimitive.Viewport>
+      <SelectScrollDownButton />
+    </SelectPrimitive.Content>
+  </SelectPrimitive.Portal>
+));
+SelectContent.displayName = SelectPrimitive.Content.displayName;
+
+const SelectLabel = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Label
+    ref={ref}
+    className={cn('py-1.5 pl-8 pr-2 text-sm font-semibold', className)}
+    {...props}
+  />
+));
+SelectLabel.displayName = SelectPrimitive.Label.displayName;
+
+const SelectItem = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Item
+    ref={ref}
+    className={cn(
+      'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      className,
+    )}
+    {...props}
+  >
+    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <SelectPrimitive.ItemIndicator>
+        <Check className="h-4 w-4" />
+      </SelectPrimitive.ItemIndicator>
+    </span>
+
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+  </SelectPrimitive.Item>
+));
+SelectItem.displayName = SelectPrimitive.Item.displayName;
+
+const SelectSeparator = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Separator>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Separator
+    ref={ref}
+    className={cn('-mx-1 my-1 h-px bg-muted', className)}
+    {...props}
+  />
+));
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
+
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+  SelectScrollUpButton,
+  SelectScrollDownButton,
+};
+</file>
+
+<file path="src/components/ui/separator.tsx">
+"use client"
+
+import * as React from "react"
+import * as SeparatorPrimitive from "@radix-ui/react-separator"
+
+import { cn } from "@/lib/utils"
+
+const Separator = React.forwardRef<
+  React.ElementRef<typeof SeparatorPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
+>(
+  (
+    { className, orientation = "horizontal", decorative = true, ...props },
+    ref
+  ) => (
+    <SeparatorPrimitive.Root
+      ref={ref}
+      decorative={decorative}
+      orientation={orientation}
+      className={cn(
+        "shrink-0 bg-border",
+        orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+        className
+      )}
+      {...props}
+    />
+  )
+)
+Separator.displayName = SeparatorPrimitive.Root.displayName
+
+export { Separator }
+</file>
+
+<file path="src/components/ui/sheet.tsx">
+'use client';
+
+import * as React from 'react';
+import * as SheetPrimitive from '@radix-ui/react-dialog';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { X } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+
+const Sheet = SheetPrimitive.Root;
+
+const SheetTrigger = SheetPrimitive.Trigger;
+
+const SheetClose = SheetPrimitive.Close;
+
+const SheetPortal = SheetPrimitive.Portal;
+
+const SheetOverlay = React.forwardRef<
+  React.ElementRef<typeof SheetPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <SheetPrimitive.Overlay
+    className={cn(
+      'fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      className,
+    )}
+    {...props}
+    ref={ref}
+  />
+));
+SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
+
+const sheetVariants = cva(
+  'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
+  {
+    variants: {
+      side: {
+        top: 'inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',
+        bottom:
+          'inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
+        left: 'inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm',
+        right:
+          'inset-y-0 right-0 h-full w-3/4  border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm',
+      },
+    },
+    defaultVariants: {
+      side: 'right',
+    },
+  },
+);
+
+interface SheetContentProps
+  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
+    VariantProps<typeof sheetVariants> {}
+
+const SheetContent = React.forwardRef<
+  React.ElementRef<typeof SheetPrimitive.Content>,
+  SheetContentProps
+>(({ side = 'right', className, children, ...props }, ref) => (
+  <SheetPortal>
+    <SheetOverlay />
+    <SheetPrimitive.Content
+      ref={ref}
+      className={cn(sheetVariants({ side }), className)}
+      {...props}
+    >
+      {children}
+      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
+        <X className="h-4 w-4" />
+        <span className="sr-only">Close</span>
+      </SheetPrimitive.Close>
+    </SheetPrimitive.Content>
+  </SheetPortal>
+));
+SheetContent.displayName = SheetPrimitive.Content.displayName;
+
+const SheetHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      'flex flex-col space-y-2 text-center sm:text-left',
+      className,
+    )}
+    {...props}
+  />
+);
+SheetHeader.displayName = 'SheetHeader';
+
+const SheetFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
+      className,
+    )}
+    {...props}
+  />
+);
+SheetFooter.displayName = 'SheetFooter';
+
+const SheetTitle = React.forwardRef<
+  React.ElementRef<typeof SheetPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <SheetPrimitive.Title
+    ref={ref}
+    className={cn('text-lg font-semibold text-foreground', className)}
+    {...props}
+  />
+));
+SheetTitle.displayName = SheetPrimitive.Title.displayName;
+
+const SheetDescription = React.forwardRef<
+  React.ElementRef<typeof SheetPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <SheetPrimitive.Description
+    ref={ref}
+    className={cn('text-sm text-muted-foreground', className)}
+    {...props}
+  />
+));
+SheetDescription.displayName = SheetPrimitive.Description.displayName;
+
+export {
+  Sheet,
+  SheetPortal,
+  SheetOverlay,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+};
+</file>
+
+<file path="src/components/ui/textarea.tsx">
+import * as React from 'react';
+
+import { cn } from '@/lib/utils';
+
+const Textarea = React.forwardRef<
+  HTMLTextAreaElement,
+  React.ComponentProps<'textarea'>
+>(({ className, ...props }, ref) => {
+  return (
+    <textarea
+      className={cn(
+        'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+        className,
+      )}
+      ref={ref}
+      {...props}
+    />
+  );
+});
+Textarea.displayName = 'Textarea';
+
+export { Textarea };
+</file>
+
+<file path="src/components/ui/toast.tsx">
+'use client';
+
+import * as React from 'react';
+import * as ToastPrimitives from '@radix-ui/react-toast';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { X } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+
+const ToastProvider = ToastPrimitives.Provider;
+
+const ToastViewport = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Viewport
+    ref={ref}
+    className={cn(
+      'fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]',
+      className,
+    )}
+    {...props}
+  />
+));
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
+
+const toastVariants = cva(
+  'group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',
+  {
+    variants: {
+      variant: {
+        default: 'border bg-background text-foreground',
+        destructive:
+          'destructive group border-destructive bg-destructive text-destructive-foreground',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  },
+);
+
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
+    VariantProps<typeof toastVariants>
+>(({ className, variant, ...props }, ref) => {
+  return (
+    <ToastPrimitives.Root
+      ref={ref}
+      className={cn(toastVariants({ variant }), className)}
+      {...props}
+    />
+  );
+});
+Toast.displayName = ToastPrimitives.Root.displayName;
+
+const ToastAction = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Action>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Action
+    ref={ref}
+    className={cn(
+      'inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive',
+      className,
+    )}
+    {...props}
+  />
+));
+ToastAction.displayName = ToastPrimitives.Action.displayName;
+
+const ToastClose = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Close
+    ref={ref}
+    className={cn(
+      'absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600',
+      className,
+    )}
+    toast-close=""
+    {...props}
+  >
+    <X className="h-4 w-4" />
+  </ToastPrimitives.Close>
+));
+ToastClose.displayName = ToastPrimitives.Close.displayName;
+
+const ToastTitle = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Title
+    ref={ref}
+    className={cn('text-sm font-semibold', className)}
+    {...props}
+  />
+));
+ToastTitle.displayName = ToastPrimitives.Title.displayName;
+
+const ToastDescription = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Description
+    ref={ref}
+    className={cn('text-sm opacity-90', className)}
+    {...props}
+  />
+));
+ToastDescription.displayName = ToastPrimitives.Description.displayName;
+
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
+
+type ToastActionElement = React.ReactElement<typeof ToastAction>;
+
+export {
+  type ToastProps,
+  type ToastActionElement,
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+};
+</file>
+
+<file path="src/components/ui/toaster.tsx">
+'use client';
+
+import { useToast } from '@/hooks/use-toast';
+import {
+  Toast,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+} from '@/components/ui/toast';
+
+export function Toaster() {
+  const { toasts } = useToast();
+
+  return (
+    <ToastProvider>
+      {toasts.map(function ({ id, title, description, action, ...props }) {
+        return (
+          <Toast key={id} {...props}>
+            <div className="grid gap-1">
+              {title && <ToastTitle>{title}</ToastTitle>}
+              {description && (
+                <ToastDescription>{description}</ToastDescription>
+              )}
+            </div>
+            {action}
+            <ToastClose />
+          </Toast>
+        );
+      })}
+      <ToastViewport />
+    </ToastProvider>
+  );
+}
+</file>
+
+<file path="src/hooks/use-toast.ts">
+"use client"
+
+// Inspired by react-hot-toast library
+import * as React from "react"
+
+import type {
+  ToastActionElement,
+  ToastProps,
+} from "@/components/ui/toast"
+
+const TOAST_LIMIT = 1
+const TOAST_REMOVE_DELAY = 1000000
+
+type ToasterToast = ToastProps & {
+  id: string
+  title?: React.ReactNode
+  description?: React.ReactNode
+  action?: ToastActionElement
+}
+
+const actionTypes = {
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
+} as const
+
+let count = 0
+
+function genId() {
+  count = (count + 1) % Number.MAX_SAFE_INTEGER
+  return count.toString()
+}
+
+type ActionType = typeof actionTypes
+
+type Action =
+  | {
+      type: ActionType["ADD_TOAST"]
+      toast: ToasterToast
+    }
+  | {
+      type: ActionType["UPDATE_TOAST"]
+      toast: Partial<ToasterToast>
+    }
+  | {
+      type: ActionType["DISMISS_TOAST"]
+      toastId?: ToasterToast["id"]
+    }
+  | {
+      type: ActionType["REMOVE_TOAST"]
+      toastId?: ToasterToast["id"]
+    }
+
+interface State {
+  toasts: ToasterToast[]
+}
+
+const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
+
+const addToRemoveQueue = (toastId: string) => {
+  if (toastTimeouts.has(toastId)) {
+    return
+  }
+
+  const timeout = setTimeout(() => {
+    toastTimeouts.delete(toastId)
+    dispatch({
+      type: "REMOVE_TOAST",
+      toastId: toastId,
+    })
+  }, TOAST_REMOVE_DELAY)
+
+  toastTimeouts.set(toastId, timeout)
+}
+
+export const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "ADD_TOAST":
+      return {
+        ...state,
+        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+      }
+
+    case "UPDATE_TOAST":
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === action.toast.id ? { ...t, ...action.toast } : t
+        ),
+      }
+
+    case "DISMISS_TOAST": {
+      const { toastId } = action
+
+      // ! Side effects ! - This could be extracted into a dismissToast() action,
+      // but I'll keep it here for simplicity
+      if (toastId) {
+        addToRemoveQueue(toastId)
+      } else {
+        state.toasts.forEach((toast) => {
+          addToRemoveQueue(toast.id)
+        })
+      }
+
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === toastId || toastId === undefined
+            ? {
+                ...t,
+                open: false,
+              }
+            : t
+        ),
+      }
+    }
+    case "REMOVE_TOAST":
+      if (action.toastId === undefined) {
+        return {
+          ...state,
+          toasts: [],
+        }
+      }
+      return {
+        ...state,
+        toasts: state.toasts.filter((t) => t.id !== action.toastId),
+      }
+  }
+}
+
+const listeners: Array<(state: State) => void> = []
+
+let memoryState: State = { toasts: [] }
+
+function dispatch(action: Action) {
+  memoryState = reducer(memoryState, action)
+  listeners.forEach((listener) => {
+    listener(memoryState)
+  })
+}
+
+type Toast = Omit<ToasterToast, "id">
+
+function toast({ ...props }: Toast) {
+  const id = genId()
+
+  const update = (props: ToasterToast) =>
+    dispatch({
+      type: "UPDATE_TOAST",
+      toast: { ...props, id },
+    })
+  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
+
+  dispatch({
+    type: "ADD_TOAST",
+    toast: {
+      ...props,
+      id,
+      open: true,
+      onOpenChange: (open) => {
+        if (!open) dismiss()
+      },
+    },
+  })
+
+  return {
+    id: id,
+    dismiss,
+    update,
+  }
+}
+
+function useToast() {
+  const [state, setState] = React.useState<State>(memoryState)
+
+  React.useEffect(() => {
+    listeners.push(setState)
+    return () => {
+      const index = listeners.indexOf(setState)
+      if (index > -1) {
+        listeners.splice(index, 1)
+      }
+    }
+  }, [state])
+
+  return {
+    ...state,
+    toast,
+    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+  }
+}
+
+export { useToast, toast }
+</file>
+
+<file path="src/lib/report/generator.ts">
+/**
+ * Threads Analytics Report Generator
+ * 주간/월간 리포트 생성 및 공유 시스템
+ */
+
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+import nodemailer from 'nodemailer';
+import { Octokit } from '@octokit/rest';
+
+export interface ReportConfig {
+  account: string;
+  platform: 'threads' | 'instagram' | 'tiktok';
+  type: 'daily' | 'weekly' | 'monthly';
+  format: 'pdf' | 'html' | 'json';
+  shareOptions?: {
+    email?: string[];
+    github?: {
+      repo: string;
+      branch: string;
+      token: string;
+    };
+    mcp?: {
+      storage: boolean;
+      dashboard: boolean;
+    };
+  };
+}
+
+export interface ThreadsAnalytics {
+  account: string;
+  period: {
+    start: Date;
+    end: Date;
+  };
+  metrics: {
+    followers: {
+      current: number;
+      growth: number;
+      growthRate: number;
+    };
+    engagement: {
+      likes: number;
+      replies: number;
+      reposts: number;
+      rate: number;
+    };
+    posts: {
+      total: number;
+      avgPerDay: number;
+      topPosts: Array<{
+        id: string;
+        content: string;
+        engagement: number;
+        timestamp: Date;
+      }>;
+    };
+    audience: {
+      peakHours: string[];
+      demographics: {
+        age: Record<string, number>;
+        location: Record<string, number>;
+      };
+    };
+  };
+  insights: {
+    trends: string[];
+    recommendations: string[];
+    competitors: Array<{
+      account: string;
+      comparison: Record<string, number>;
+    }>;
+  };
+}
+
+export class ReportGenerator {
+  private config: ReportConfig;
+  private analytics: ThreadsAnalytics | null = null;
+
+  constructor(config: ReportConfig) {
+    this.config = config;
+  }
+
+  /**
+   * 리포트 생성 메인 함수
+   */
+  async generateReport(): Promise<string> {
+    // 1. 데이터 수집
+    this.analytics = await this.collectAnalytics();
+    
+    // 2. 리포트 생성
+    const reportPath = await this.createReport();
+    
+    // 3. 공유 처리
+    if (this.config.shareOptions) {
+      await this.shareReport(reportPath);
+    }
+    
+    return reportPath;
+  }
+
+  /**
+   * Threads 분석 데이터 수집
+   */
+  private async collectAnalytics(): Promise<ThreadsAnalytics> {
+    // TODO: 실제 Threads API 연동
+    const mockData: ThreadsAnalytics = {
+      account: this.config.account,
+      period: {
+        start: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+        end: new Date(),
+      },
+      metrics: {
+        followers: {
+          current: 5420,
+          growth: 320,
+          growthRate: 6.27,
+        },
+        engagement: {
+          likes: 15234,
+          replies: 892,
+          reposts: 456,
+          rate: 4.8,
+        },
+        posts: {
+          total: 28,
+          avgPerDay: 4,
+          topPosts: [
+            {
+              id: '1',
+              content: '신제품 출시 이벤트 🎉',
+              engagement: 3421,
+              timestamp: new Date('2025-08-20'),
+            },
+            {
+              id: '2',
+              content: '고객 후기 모음 💝',
+              engagement: 2156,
+              timestamp: new Date('2025-08-18'),
+            },
+          ],
+        },
+        audience: {
+          peakHours: ['18:00', '19:00', '20:00'],
+          demographics: {
+            age: {
+              '18-24': 32,
+              '25-34': 45,
+              '35-44': 18,
+              '45+': 5,
+            },
+            location: {
+              '서울': 42,
+              '경기': 28,
+              '부산': 12,
+              '기타': 18,
+            },
+          },
+        },
+      },
+      insights: {
+        trends: [
+          '이벤트 관련 게시물 참여율 최고',
+          '저녁 시간대 활동 집중',
+          '이미지 포함 게시물 선호',
+        ],
+        recommendations: [
+          '18-20시 사이 주요 콘텐츠 발행 권장',
+          '주 2-3회 이벤트/프로모션 진행',
+          '고품질 이미지 콘텐츠 비중 증가',
+        ],
+        competitors: [
+          {
+            account: 'clickmate_seller',
+            comparison: {
+              followers: -15,
+              engagement: 12,
+              posts: 5,
+            },
+          },
+        ],
+      },
+    };
+
+    return mockData;
+  }
+
+  /**
+   * PDF 리포트 생성
+   */
+  private async createReport(): Promise<string> {
+    if (!this.analytics) throw new Error('No analytics data');
+
+    const pdf = new jsPDF();
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    
+    // 제목
+    pdf.setFontSize(20);
+    pdf.text('Threads Analytics Report', pageWidth / 2, 20, { align: 'center' });
+    
+    // 계정 정보
+    pdf.setFontSize(12);
+    pdf.text(`Account: @${this.config.account}`, 20, 35);
+    pdf.text(`Period: ${this.config.type}`, 20, 42);
+    pdf.text(`Generated: ${new Date().toLocaleDateString()}`, 20, 49);
+    
+    // 주요 지표
+    pdf.setFontSize(14);
+    pdf.text('Key Metrics', 20, 65);
+    pdf.setFontSize(10);
+    pdf.text(`Followers: ${this.analytics.metrics.followers.current} (+${this.analytics.metrics.followers.growth})`, 20, 75);
+    pdf.text(`Engagement Rate: ${this.analytics.metrics.engagement.rate}%`, 20, 82);
+    pdf.text(`Total Posts: ${this.analytics.metrics.posts.total}`, 20, 89);
+    
+    // 인사이트
+    pdf.setFontSize(14);
+    pdf.text('Insights & Recommendations', 20, 105);
+    pdf.setFontSize(10);
+    this.analytics.insights.recommendations.forEach((rec, i) => {
+      pdf.text(`• ${rec}`, 20, 115 + (i * 7));
+    });
+    
+    // 파일 저장
+    const fileName = `threads_${this.config.type}_${Date.now()}.pdf`;
+    const filePath = `/tmp/${fileName}`;
+    pdf.save(filePath);
+    
+    return filePath;
+  }
+
+  /**
+   * 리포트 공유 처리
+   */
+  private async shareReport(reportPath: string): Promise<void> {
+    const { shareOptions } = this.config;
+    
+    // 이메일 발송
+    if (shareOptions?.email) {
+      await this.sendEmail(reportPath, shareOptions.email);
+    }
+    
+    // GitHub 업로드
+    if (shareOptions?.github) {
+      await this.uploadToGithub(reportPath, shareOptions.github);
+    }
+    
+    // MCP 저장소
+    if (shareOptions?.mcp?.storage) {
+      await this.saveToMCP(reportPath);
+    }
+    
+    // MCP 대시보드
+    if (shareOptions?.mcp?.dashboard) {
+      await this.uploadToDashboard(reportPath);
+    }
+  }
+
+  /**
+   * 이메일 발송
+   */
+  private async sendEmail(reportPath: string, recipients: string[]): Promise<void> {
+    const transporter = nodemailer.createTransporter({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: recipients.join(', '),
+      subject: `Threads ${this.config.type} Report - ${this.config.account}`,
+      text: `Please find attached the ${this.config.type} analytics report for @${this.config.account}`,
+      attachments: [
+        {
+          filename: `threads_report_${this.config.type}.pdf`,
+          path: reportPath,
+        },
+      ],
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log(`Report sent to: ${recipients.join(', ')}`);
+  }
+
+  /**
+   * GitHub 저장소 업로드
+   */
+  private async uploadToGithub(
+    reportPath: string,
+    githubConfig: { repo: string; branch: string; token: string }
+  ): Promise<void> {
+    const octokit = new Octokit({ auth: githubConfig.token });
+    const [owner, repo] = githubConfig.repo.split('/');
+    
+    // 파일 읽기
+    const fs = require('fs');
+    const content = fs.readFileSync(reportPath, { encoding: 'base64' });
+    
+    // GitHub에 업로드
+    await octokit.repos.createOrUpdateFileContents({
+      owner,
+      repo,
+      path: `reports/${this.config.type}/${Date.now()}_report.pdf`,
+      message: `Add Threads ${this.config.type} analysis for ${this.config.account}`,
+      content,
+      branch: githubConfig.branch,
+    });
+    
+    console.log(`Report uploaded to GitHub: ${githubConfig.repo}`);
+  }
+
+  /**
+   * MCP 저장소 저장
+   */
+  private async saveToMCP(reportPath: string): Promise<void> {
+    // MCP memory 서버 활용
+    console.log(`Report saved to MCP storage: ${reportPath}`);
+    // TODO: MCP memory API 연동
+  }
+
+  /**
+   * MCP 대시보드 업로드
+   */
+  private async uploadToDashboard(reportPath: string): Promise<void> {
+    // MCP 대시보드 API 연동
+    console.log(`Report uploaded to MCP dashboard: ${reportPath}`);
+    // TODO: MCP dashboard API 연동
+  }
+}
+
+// CLI 명령어 파서
+export function parseCommand(command: string): ReportConfig {
+  const parts = command.split(' ');
+  const config: ReportConfig = {
+    account: '',
+    platform: 'threads',
+    type: 'weekly',
+    format: 'pdf',
+  };
+
+  for (let i = 0; i < parts.length; i++) {
+    switch (parts[i]) {
+      case '--account':
+        config.account = parts[i + 1];
+        break;
+      case '--platform':
+        config.platform = parts[i + 1] as any;
+        break;
+      case '--type':
+        config.type = parts[i + 1] as any;
+        break;
+      case '--format':
+        config.format = parts[i + 1] as any;
+        break;
+      case '--share':
+        if (!config.shareOptions) config.shareOptions = {};
+        config.shareOptions.email = [parts[i + 1]];
+        break;
+    }
+  }
+
+  return config;
+}
+</file>
+
+<file path="src/lib/threads-content/content-creator.ts">
+/**
+ * Threads Content Creator
+ * 쓰레드 콘텐츠 작성 도우미
+ */
+
+export interface ThreadsContent {
+  text: string;
+  hashtags: string[];
+  mediaUrls?: string[];
+  mentions?: string[];
+  scheduledTime?: Date;
+  contentType: 'text' | 'image' | 'video' | 'carousel';
+  category: string;
+  targetAudience: string;
+}
+
+export interface ContentTemplate {
+  id: string;
+  name: string;
+  category: string;
+  template: string;
+  variables: string[];
+  exampleOutput: string;
+  bestTimeToPost: string[];
+}
+
+export interface ContentIdea {
+  topic: string;
+  hook: string;
+  body: string;
+  cta: string;
+  hashtags: string[];
+  estimatedEngagement: number;
+}
+
+export class ThreadsContentCreator {
+  private templates: ContentTemplate[] = [
+    {
+      id: 'product-launch',
+      name: '신제품 출시',
+      category: 'marketing',
+      template: '🚀 [제품명] 출시!\n\n[핵심 기능 3가지]\n✨ [기능1]\n✨ [기능2]\n✨ [기능3]\n\n[특별 혜택]\n\n지금 바로 확인하세요 👉 [링크]',
+      variables: ['제품명', '기능1', '기능2', '기능3', '특별 혜택', '링크'],
+      exampleOutput: '🚀 AI 마케팅 대시보드 출시!\n\n✨ 실시간 데이터 분석\n✨ 자동 리포트 생성\n✨ 경쟁사 벤치마킹\n\n🎁 첫 달 50% 할인\n\n지금 바로 확인하세요 👉 link.com',
+      bestTimeToPost: ['09:00', '12:00', '19:00']
+    },
+    {
+      id: 'tips-and-tricks',
+      name: '팁 & 트릭',
+      category: 'education',
+      template: '💡 [주제] 꿀팁 [숫자]가지\n\n1️⃣ [팁1]\n2️⃣ [팁2]\n3️⃣ [팁3]\n\n북마크하고 나중에 활용하세요! 📌\n\n더 많은 팁은 프로필 링크에서 👆',
+      variables: ['주제', '숫자', '팁1', '팁2', '팁3'],
+      exampleOutput: '💡 마케팅 성과 높이는 꿀팁 3가지\n\n1️⃣ 데이터 기반 의사결정\n2️⃣ A/B 테스트 활용\n3️⃣ 고객 피드백 반영\n\n북마크하고 나중에 활용하세요! 📌',
+      bestTimeToPost: ['10:00', '14:00', '20:00']
+    },
+    {
+      id: 'user-testimonial',
+      name: '고객 후기',
+      category: 'social-proof',
+      template: '🌟 고객님의 소중한 후기\n\n"[후기 내용]"\n\n- [고객명/직책]\n\n[제품/서비스]를 통해 [결과]를 달성하셨습니다! 🎯\n\n#고객후기 #[제품명]',
+      variables: ['후기 내용', '고객명/직책', '제품/서비스', '결과', '제품명'],
+      exampleOutput: '🌟 고객님의 소중한 후기\n\n"매출이 3개월 만에 200% 성장했어요!"\n\n- 김대표/스타트업 CEO\n\nAI 마케팅 도구를 통해 놀라운 성과를 달성하셨습니다! 🎯',
+      bestTimeToPost: ['11:00', '15:00', '18:00']
+    },
+    {
+      id: 'behind-the-scenes',
+      name: '비하인드 스토리',
+      category: 'engagement',
+      template: '👀 [회사/팀]의 일상\n\n오늘은 [활동/프로젝트]를 진행했습니다!\n\n[상세 설명]\n\n[감정/느낌]\n\n#비하인드 #일상 #[해시태그]',
+      variables: ['회사/팀', '활동/프로젝트', '상세 설명', '감정/느낌', '해시태그'],
+      exampleOutput: '👀 개발팀의 일상\n\n오늘은 새로운 AI 기능을 테스트했습니다!\n\n3시간의 디버깅 끝에 드디어 성공 🎉\n\n팀원들과 함께여서 더 즐거웠어요!\n\n#개발일상 #팀워크',
+      bestTimeToPost: ['13:00', '17:00', '21:00']
+    },
+    {
+      id: 'question-engagement',
+      name: '질문형 참여 유도',
+      category: 'engagement',
+      template: '🤔 [질문]?\n\nA. [선택지1]\nB. [선택지2]\nC. [선택지3]\n\n댓글로 알려주세요! 👇\n\n[추가 설명/이유]\n\n#투표 #소통',
+      variables: ['질문', '선택지1', '선택지2', '선택지3', '추가 설명/이유'],
+      exampleOutput: '🤔 가장 중요한 마케팅 지표는?\n\nA. 전환율\nB. 고객 획득 비용\nC. 고객 생애 가치\n\n댓글로 알려주세요! 👇\n\n여러분의 의견이 궁금해요!',
+      bestTimeToPost: ['12:00', '16:00', '19:00']
+    }
+  ];
+
+  /**
+   * AI 기반 콘텐츠 아이디어 생성
+   */
+  async generateContentIdeas(
+    topic: string,
+    count: number = 5,
+    targetAudience?: string
+  ): Promise<ContentIdea[]> {
+    const ideas: ContentIdea[] = [];
+    
+    // 트렌딩 토픽 기반 아이디어
+    const trendingTopics = [
+      'AI 활용법', '생산성 향상', '마케팅 전략', '고객 경험', '데이터 분석',
+      '소셜 미디어 팁', '스타트업 성장', '리더십', '트렌드 분석', '케이스 스터디'
+    ];
+
+    // 훅 템플릿
+    const hooks = [
+      `${topic}의 숨겨진 비밀`,
+      `아무도 알려주지 않는 ${topic} 팁`,
+      `${topic}로 성공한 실제 사례`,
+      `${topic}의 미래는?`,
+      `${topic} 완벽 가이드`,
+      `초보자를 위한 ${topic} 입문`,
+      `전문가가 알려주는 ${topic}`,
+      `${topic} 실패 경험담`,
+      `${topic} 성공의 3가지 법칙`,
+      `${topic} 트렌드 2025`
+    ];
+
+    // CTA 템플릿
+    const ctas = [
+      '더 많은 정보는 프로필 링크에서!',
+      '팔로우하고 더 많은 팁 받아보세요',
+      '저장하고 나중에 활용하세요',
+      '친구에게 공유해주세요',
+      '댓글로 여러분의 경험을 공유해주세요',
+      'DM으로 문의 주세요',
+      '무료 상담 신청하기',
+      '뉴스레터 구독하기',
+      '더 자세한 내용이 궁금하신가요?'
+    ];
+
+    for (let i = 0; i < count; i++) {
+      const randomHook = hooks[Math.floor(Math.random() * hooks.length)];
+      const randomCta = ctas[Math.floor(Math.random() * ctas.length)];
+      
+      ideas.push({
+        topic: topic,
+        hook: randomHook,
+        body: this.generateBody(topic),
+        cta: randomCta,
+        hashtags: this.generateHashtags(topic),
+        estimatedEngagement: Math.floor(Math.random() * 1000) + 100
+      });
+    }
+
+    return ideas;
+  }
+
+  /**
+   * 콘텐츠 본문 생성
+   */
+  private generateBody(topic: string): string {
+    const bodyTemplates = [
+      `${topic}을(를) 시작하기 전 알아야 할 3가지:\n\n1. 기초 이해하기\n2. 실전 적용하기\n3. 결과 측정하기`,
+      `${topic} 성공 사례:\n\n✅ 3개월 만에 200% 성장\n✅ 비용 50% 절감\n✅ 효율성 300% 향상`,
+      `${topic} 체크리스트:\n\n□ 목표 설정\n□ 전략 수립\n□ 실행 계획\n□ 모니터링\n□ 최적화`,
+      `${topic}의 핵심:\n\n💡 인사이트: 데이터 기반 접근\n🎯 목표: 명확한 KPI 설정\n🚀 실행: 빠른 테스트와 개선`,
+      `${topic} 실패 원인 TOP 3:\n\n❌ 준비 부족\n❌ 잘못된 타이밍\n❌ 피드백 무시\n\n이것만 피해도 성공률 UP!`
+    ];
+
+    return bodyTemplates[Math.floor(Math.random() * bodyTemplates.length)];
+  }
+
+  /**
+   * 해시태그 생성
+   */
+  generateHashtags(topic: string, count: number = 5): string[] {
+    const baseHashtags = [
+      '#쓰레드', '#Threads', '#마케팅', '#디지털마케팅', '#소셜미디어',
+      '#콘텐츠마케팅', '#브랜딩', '#스타트업', '#비즈니스', '#성장',
+      '#팁', '#인사이트', '#트렌드', '#전략', '#마케터', '#창업',
+      '#AI', '#자동화', '#데이터분석', '#고객경험'
+    ];
+
+    // 토픽 관련 해시태그 추가
+    const topicHashtags = [
+      `#${topic.replace(/\s/g, '')}`,
+      `#${topic.replace(/\s/g, '_')}`,
+      `#${topic.split(' ')[0]}`
+    ];
+
+    const allHashtags = [...topicHashtags, ...baseHashtags];
+    const selected = [];
+    
+    for (let i = 0; i < count && i < allHashtags.length; i++) {
+      const randomIndex = Math.floor(Math.random() * allHashtags.length);
+      if (!selected.includes(allHashtags[randomIndex])) {
+        selected.push(allHashtags[randomIndex]);
+      }
+    }
+
+    return selected;
+  }
+
+  /**
+   * 콘텐츠 템플릿 적용
+   */
+  applyTemplate(
+    templateId: string,
+    variables: Record<string, string>
+  ): ThreadsContent {
+    const template = this.templates.find(t => t.id === templateId);
+    if (!template) {
+      throw new Error(`Template ${templateId} not found`);
+    }
+
+    let content = template.template;
+    
+    // 변수 치환
+    for (const [key, value] of Object.entries(variables)) {
+      content = content.replace(new RegExp(`\\[${key}\\]`, 'g'), value);
+    }
+
+    return {
+      text: content,
+      hashtags: this.generateHashtags(template.category),
+      contentType: 'text',
+      category: template.category,
+      targetAudience: 'general'
+    };
+  }
+
+  /**
+   * 최적 업로드 시간 추천
+   */
+  getBestPostingTimes(
+    targetAudience: string = 'general',
+    timezone: string = 'Asia/Seoul'
+  ): string[] {
+    const audienceTimes: Record<string, string[]> = {
+      'general': ['09:00', '12:00', '18:00', '20:00'],
+      'business': ['08:00', '12:00', '17:00'],
+      'young': ['14:00', '19:00', '21:00', '23:00'],
+      'global': ['03:00', '10:00', '15:00', '22:00'] // KST 기준
+    };
+
+    return audienceTimes[targetAudience] || audienceTimes['general'];
+  }
+
+  /**
+   * 이모지 추천
+   */
+  suggestEmojis(category: string): string[] {
+    const emojiMap: Record<string, string[]> = {
+      'marketing': ['📈', '🎯', '💡', '🚀', '📊', '💰', '🔥', '⭐'],
+      'education': ['📚', '✏️', '🎓', '💡', '🧠', '📖', '✅', '📝'],
+      'social-proof': ['🌟', '💬', '👥', '🏆', '✨', '💯', '👍', '🎉'],
+      'engagement': ['🤔', '💭', '👇', '💬', '❓', '🗣️', '🙋', '📢'],
+      'product': ['🎁', '🛍️', '✨', '🆕', '🔔', '🎊', '🎈', '🎀'],
+      'tech': ['💻', '🤖', '⚡', '🔧', '🛠️', '📱', '🖥️', '⌨️']
+    };
+
+    return emojiMap[category] || emojiMap['marketing'];
+  }
+
+  /**
+   * 콘텐츠 최적화 제안
+   */
+  optimizeContent(content: string): {
+    optimized: string;
+    suggestions: string[];
+  } {
+    const suggestions: string[] = [];
+    let optimized = content;
+
+    // 길이 체크 (500자 제한)
+    if (content.length > 500) {
+      suggestions.push('콘텐츠가 너무 깁니다. 500자 이내로 줄이세요.');
+      optimized = content.substring(0, 497) + '...';
+    }
+
+    // 이모지 추가 제안
+    if (!content.match(/[\u{1F300}-\u{1F9FF}]/gu)) {
+      suggestions.push('이모지를 추가하면 참여율이 높아집니다.');
+    }
+
+    // 해시태그 체크
+    const hashtagCount = (content.match(/#/g) || []).length;
+    if (hashtagCount === 0) {
+      suggestions.push('해시태그를 추가하세요 (3-5개 권장)');
+    } else if (hashtagCount > 10) {
+      suggestions.push('해시태그가 너무 많습니다 (3-5개 권장)');
+    }
+
+    // CTA 체크
+    const ctaKeywords = ['클릭', '확인', '신청', '구매', '다운로드', '팔로우', '댓글'];
+    const hasCTA = ctaKeywords.some(keyword => content.includes(keyword));
+    if (!hasCTA) {
+      suggestions.push('행동 유도 문구(CTA)를 추가하세요');
+    }
+
+    // 라인 브레이크 추가
+    if (!content.includes('\n')) {
+      suggestions.push('가독성을 위해 줄바꿈을 추가하세요');
+    }
+
+    return { optimized, suggestions };
+  }
+
+  /**
+   * 템플릿 목록 가져오기
+   */
+  getTemplates(): ContentTemplate[] {
+    return this.templates;
+  }
+
+  /**
+   * 새 템플릿 추가
+   */
+  addTemplate(template: ContentTemplate): void {
+    this.templates.push(template);
+  }
+}
+
+// 사용 예시를 위한 CLI 명령어 매핑
+export const contentCommands = {
+  'generate_ideas': async (topic: string, count: number = 5) => {
+    const creator = new ThreadsContentCreator();
+    return await creator.generateContentIdeas(topic, count);
+  },
+  
+  'apply_template': (templateId: string, variables: Record<string, string>) => {
+    const creator = new ThreadsContentCreator();
+    return creator.applyTemplate(templateId, variables);
+  },
+  
+  'optimize': (content: string) => {
+    const creator = new ThreadsContentCreator();
+    return creator.optimizeContent(content);
+  },
+  
+  'best_times': (audience: string = 'general') => {
+    const creator = new ThreadsContentCreator();
+    return creator.getBestPostingTimes(audience);
+  },
+  
+  'suggest_hashtags': (topic: string) => {
+    const creator = new ThreadsContentCreator();
+    return creator.generateHashtags(topic);
+  }
+};
+</file>
+
+<file path="src/lib/utils.ts">
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+</file>
+
+<file path=".cursorignore">
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# EasyNext
+.easynext
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="components.json">
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  }
+}
+</file>
+
+<file path="eslint.config.mjs">
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    rules: {
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
+  },
+];
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        hostname: '**',
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+</file>
+
+<file path="postcss.config.mjs">
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="sample-threads-posts.md">
+# 샘플 Threads 포스트 3개
+
+마케팅 대시보드 콘텐츠 크리에이터 시스템을 사용해 생성한 실전 활용 가능한 Threads 포스트입니다.
+
+## 📊 포스트 1: AI 도구를 활용한 마케팅 자동화
+
+**템플릿**: 팁 & 트릭 (tips-and-tricks)
+**카테고리**: education
+**타겟**: 마케터, 비즈니스 오너
+
+```
+💡 AI 마케팅 자동화 꿀팁 3가지 🚀
+
+1️⃣ 고객 세그먼트 자동 분류
+데이터 기반으로 고객을 자동 그룹핑하여 개인화된 메시지 발송
+
+2️⃣ 실시간 성과 모니터링
+AI가 24/7 캠페인을 분석하고 최적화 제안 알림
+
+3️⃣ 콘텐츠 자동 생성
+브랜드 톤앤매너 학습한 AI로 소셜미디어 콘텐츠 자동 생성
+
+북마크하고 나중에 활용하세요! 📌
+
+더 많은 팁은 프로필 링크에서 👆
+
+#AI마케팅 #마케팅자동화 #디지털마케팅 #마케터 #비즈니스팁
+```
+
+**최적 포스팅 시간**: 10:00, 14:00, 20:00
+**예상 참여도**: ⭐⭐⭐⭐ (높음)
+**글자 수**: 248자
+
+---
+
+## 🚀 포스트 2: 스타트업 성장 전략
+
+**템플릿**: 비하인드 스토리 + 케이스 스터디 혼합
+**카테고리**: business
+**타겟**: 창업자, 스타트업 팀
+
+```
+🎯 3개월 만에 MAU 500% 성장한 비결
+
+우리 스타트업이 실제로 적용한 성장 해킹 전략 공개! 💪
+
+✨ 핵심 전략 3가지:
+• 데이터 기반 사용자 여정 최적화
+• 바이럴 추천 시스템 구축  
+• 고객 피드백 실시간 반영
+
+📈 결과:
+- 월 활성 사용자 2,000 → 10,000명
+- 고객 만족도 95% 달성
+- 재방문율 3배 증가
+
+실패도 많았지만 포기하지 않았기에 가능했어요! 🔥
+
+창업자분들, 어떤 전략이 가장 도움 되셨나요? 
+댓글로 공유해주세요! 👇
+
+#스타트업성장 #창업 #성장해킹 #MAU #데이터마케팅
+```
+
+**최적 포스팅 시간**: 09:00, 12:00, 18:00
+**예상 참여도**: ⭐⭐⭐⭐⭐ (매우 높음)
+**글자 수**: 312자
+
+---
+
+## 💻 포스트 3: 개발자를 위한 생산성 팁
+
+**템플릿**: 체크리스트 + 팁 조합
+**카테고리**: tech
+**타겟**: 개발자, 프로그래머
+
+```
+⚡ 개발 생산성 10배 높이는 루틴 체크리스트
+
+개발자 5년 경험으로 정리한 실전 팁! 🛠️
+
+🌅 **오전 루틴**
+□ 이슈 우선순위 정리 (5분)
+□ 큰 작업 먼저, 작은 작업 나중에
+□ 포모도로 타이머 세팅 (25분 집중)
+
+🔧 **개발 중**  
+□ 커밋 메시지는 명확하게
+□ 코드 리뷰 요청은 즉시
+□ 막히면 15분 룰 적용 (15분 고민 후 질문)
+
+🚀 **효율 도구들**
+• GitHub Copilot으로 코드 자동완성
+• Notion으로 문서화 
+• Slack 방해 금지 모드 활용
+
+이 중에 모르는 팁이 있다면 저장 필수! 📌
+
+어떤 팁이 가장 도움 될 것 같나요? 🤔
+
+#개발자 #프로그래밍 #생산성 #코딩팁 #개발도구 #포모도로
+```
+
+**최적 포스팅 시간**: 13:00, 17:00, 21:00  
+**예상 참여도**: ⭐⭐⭐⭐ (높음)
+**글자 수**: 398자
+
+---
+
+## 📋 콘텐츠 최적화 분석
+
+### 공통 최적화 요소:
+- ✅ 이모지 적절히 활용 (시각적 어필)
+- ✅ 500자 이내 준수 (가독성)
+- ✅ 해시태그 5-6개 (노출 최적화)
+- ✅ 명확한 CTA 포함 (참여 유도)
+- ✅ 줄바꿈으로 가독성 향상
+- ✅ 구체적인 수치 제시 (신뢰도)
+
+### 포스팅 전략:
+1. **타이밍**: 각 포스트별 최적 시간에 게시
+2. **상호작용**: 댓글에 적극 응답하여 알고리즘 부스트
+3. **크로스 플랫폼**: 다른 SNS에도 변형하여 활용
+4. **추적**: 인사이트로 성과 분석 후 개선
+
+### 시리즈화 제안:
+- AI 마케팅: 주간 팁 시리즈
+- 스타트업: 월간 성장 사례
+- 개발 생산성: 주간 도구 리뷰
+
+---
+
+**생성 일시**: 2025-08-22
+**생성 도구**: 마케팅 대시보드 콘텐츠 크리에이터 시스템
+**활용도**: 즉시 사용 가능한 완성된 포스트
+</file>
+
+<file path="tailwind.config.ts">
+import type { Config } from 'tailwindcss';
+
+const config = {
+  darkMode: ['class'],
+  content: ['./src/**/*.{ts,tsx}'],
+  prefix: '',
+  theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
+    extend: {
+      colors: {
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+    },
+  },
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+} satisfies Config;
+
+export default config;
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "strictNullChecks": false,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "my-marketing-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^4",
+    "@octokit/rest": "^22.0.0",
+    "@radix-ui/react-accordion": "^1.2.3",
+    "@radix-ui/react-avatar": "^1.1.2",
+    "@radix-ui/react-checkbox": "^1.1.1",
+    "@radix-ui/react-dialog": "^1.1.4",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.4",
+    "@radix-ui/react-separator": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.6",
+    "@tanstack/react-query": "^5",
+    "autoprefixer": "10.4.20",
+    "axios": "^1.11.0",
+    "chart.js": "^4.5.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^4",
+    "dotenv": "^17.2.1",
+    "es-toolkit": "^1",
+    "framer-motion": "^11",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
+    "lucide-react": "^0.469.0",
+    "next": "15.1.0",
+    "next-themes": "^0.4.3",
+    "nodemailer": "^7.0.5",
+    "react": "^19.0.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7",
+    "react-use": "^17",
+    "server-only": "0.0.1",
+    "ts-pattern": "^5",
+    "zod": "^3",
+    "zustand": "^4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.0",
+    "postcss": "^8",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="README.md">
+# 📊 Marketing Dashboard
+
+Marketing Analytics Dashboard for Threads, Instagram, and TikTok - Built with Next.js and EasyNext
+
+## 🚀 Overview
+
+A comprehensive marketing analytics platform designed to track, analyze, and optimize social media performance across multiple platforms. Special focus on **Threads** analytics with AI-powered insights and automated reporting.
+
+## ✨ Key Features
+
+### 📈 Analytics & Metrics
+- **Real-time Performance Tracking** - Monitor follower growth, engagement rates, and content performance
+- **Multi-platform Support** - Threads, Instagram, TikTok in one dashboard
+- **Competitor Analysis** - Benchmark against competitors
+- **AI-Powered Insights** - Get strategic recommendations
+
+### 📊 Data Visualization
+- Interactive charts with Chart.js
+- Customizable dashboards
+- Export reports as PDF/Excel
+- Real-time data updates
+
+### 🤖 Automation
+- Scheduled reports via email
+- GitHub integration for report archiving
+- MCP storage system integration
+- Webhook notifications
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) + [EasyNext](https://github.com/easynextjs/easynext)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Charts**: Chart.js + react-chartjs-2
+- **State Management**: Zustand
+- **API Client**: Axios
+- **Form Handling**: React Hook Form + Zod
+- **Database**: Supabase (optional)
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js 20+
+- npm or yarn
+- Git
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/MadKangYu/my-marketing-dashboard.git
+cd my-marketing-dashboard
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your API keys
+
+# Run development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```env
+# API Keys
+THREADS_API_KEY=your_threads_api_key
+INSTAGRAM_API_KEY=your_instagram_api_key
+TIKTOK_API_KEY=your_tiktok_api_key
+
+# Email Configuration (for reports)
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_app_password
+
+# GitHub Integration
+GITHUB_TOKEN=your_github_token
+GITHUB_REPO=username/repo-name
+
+# Optional: AI Services
+OPENAI_API_KEY=your_openai_key
+```
+
+## 📱 CLI Commands
+
+The dashboard includes a powerful CLI for data analysis:
+
+### Growth Analysis
+```bash
+analyze_growth --account k.madlab --platform threads --period 30d
+```
+
+### Top Posts
+```bash
+get_top_posts --account k.madlab --platform threads --metric engagement --limit 5
+```
+
+### Competitor Comparison
+```bash
+compare_accounts --target k.madlab --competitor clickmate_seller --platform threads
+```
+
+### Export Reports
+```bash
+export_report --account k.madlab --platform threads --type weekly --format pdf --share email@example.com
+```
+
+### AI Strategy
+```bash
+ai_strategy --account k.madlab --platform threads --goal "increase followers 10%" --period 30d
+```
+
+## 📊 Dashboard Features
+
+### 1. Real-time Metrics
+- Follower count and growth rate
+- Engagement metrics (likes, comments, shares)
+- Reach and impressions
+- Best performing content
+
+### 2. Trend Analysis
+- Content performance over time
+- Optimal posting times
+- Hashtag effectiveness
+- Audience demographics
+
+### 3. Report Generation
+- Weekly/Monthly automated reports
+- Custom date range analysis
+- Multiple export formats (PDF, Excel, JSON)
+- Email and cloud storage integration
+
+### 4. AI Insights
+- Content recommendations
+- Posting schedule optimization
+- Hashtag suggestions
+- Growth strategy planning
+
+## 🔌 API Endpoints
+
+### Report Generation
+```http
+POST /api/report
+Content-Type: application/json
+
+{
+  "command": "export_report --account k.madlab --platform threads --type weekly"
+}
+```
+
+### Analytics Data
+```http
+GET /api/analytics?account=k.madlab&platform=threads&period=7d
+```
+
+### Competitor Analysis
+```http
+GET /api/compare?target=k.madlab&competitor=competitor_account
+```
+
+## 📂 Project Structure
+
+```
+my-marketing-dashboard/
+├── src/
+│   ├── app/                 # Next.js App Router
+│   │   ├── api/             # API routes
+│   │   ├── dashboard/       # Dashboard pages
+│   │   └── page.tsx         # Home page
+│   ├── components/          # React components
+│   │   ├── charts/          # Chart components
+│   │   ├── threads/         # Threads-specific
+│   │   └── ui/              # shadcn/ui components
+│   ├── lib/                 # Utilities
+│   │   ├── threads-api/     # API wrappers
+│   │   ├── report/          # Report generation
+│   │   └── analytics/       # Data processing
+│   └── hooks/               # Custom React hooks
+├── public/                  # Static assets
+├── .claude/                 # Claude Code settings
+└── package.json            # Dependencies
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+### Docker
+```bash
+# Build image
+docker build -t marketing-dashboard .
+
+# Run container
+docker run -p 3000:3000 marketing-dashboard
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [EasyNext](https://github.com/easynextjs/easynext)
+- UI components from [shadcn/ui](https://ui.shadcn.com)
+- Charts powered by [Chart.js](https://www.chartjs.org)
+- Deployed on [Vercel](https://vercel.com)
+
+## 📞 Support
+
+For support, email richardowen7212@gmail.com or open an issue on GitHub.
+
+## 🔗 Links
+
+- [Live Demo](https://marketing-dashboard.vercel.app)
+- [Documentation](https://docs.marketing-dashboard.com)
+- [GitHub Repository](https://github.com/MadKangYu/my-marketing-dashboard)
+
+---
+
+Made with ❤️ by MadKangYu | Powered by Claude Code & EasyNext
+</file>
+
+</files>
